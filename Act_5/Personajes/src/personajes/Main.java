@@ -4,22 +4,19 @@
  */
 
 /*
-* David Gutierrrez Macie
+* David Gutierrrez Maciel
 *crear clase molde
 */
 package personajes;
 
-/**
- * Nombre de clase principal
- * @author David Gutierrez Maciel
- */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
-}
+        Characters p2 = new Characters();
+        Characters personaje1 = new Characters("Samara");
+        personaje1.setName("Alondra");
+
+        System.out.println("Mi objeto se llama: " + personaje1.getName());
+        p2.setName("Uriel");
+        System.out.println("Este objeto se llama: " + p2.getName());
+    }//fin de main
