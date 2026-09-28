@@ -39,5 +39,35 @@ public class Characters {
     public String getName() {
         return this.name;
     }
+ public Characters(String name, float life_health, String weapon) {
+    this.name = name;
+    this.life_health = life_health;
+    this.weapon = weapon;
+}
+  public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // life_health
+    public float getLife_health() {
+        return life_health;
+    }
+
+    public void setLife_health(float life_health) {
+        this.life_health = life_health;
+    }
+
+    // weapon
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
+    }
 
 }//fin de characters
