@@ -11,19 +11,33 @@
 package personajes;
 
 /**
- *molde principal
- * @author 222618776
+ *clase o model principal de characters
+ * @author David
  */
 public class Characters {
-    // atributos
-    int life;
-    int strength;
-    String name;
-    String hair;
-    String wear;
-    String weapon;
-    // contrutores
-    
-    
-    // getter y setters
-}
+    //Atributos (variables)
+    private float life_health; // vida del personaje
+    private float strangeth; // fuerza de ataque
+    private String name; // nombre del personaje
+    private String hair; // Color de cabello y forma
+    private String wear; // vestimenta
+    private String weapon; //varma a usar
+
+    //constructores
+    public Characters() {
+    }
+
+    public Characters(String name) {
+        this.name = name;
+    }
+
+    //geter y setter
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+}//fin de characters
