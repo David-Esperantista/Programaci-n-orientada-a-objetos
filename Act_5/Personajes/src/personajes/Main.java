@@ -14,9 +14,13 @@ public class Main {
     public static void main(String[] args) {
         Characters p2 = new Characters();
         Characters personaje1 = new Characters("Samara");
+        Characters p3 = new Characters("Gabo", 80f, "Arco");
         personaje1.setName("Alondra");
+        p3.setName("jp");
 
         System.out.println("Mi objeto se llama: " + personaje1.getName());
         p2.setName("Uriel");
         System.out.println("Este objeto se llama: " + p2.getName());
+        System.out.println("Este objeto se llama: " + p3.getName());
+        }
     }//fin de main
