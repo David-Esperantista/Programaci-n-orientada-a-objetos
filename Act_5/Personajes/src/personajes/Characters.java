@@ -1,73 +1,69 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-
- /*descricion
-*clase principal que se encuentra los personajes
-*
+* Descripción: Clase principal donde se encuentran todos los atributos y 
+* caracteristicas de los personajes para la simulación del video juego
 */
 package personajes;
 
 /**
- *clase o model principal de characters
- * @author David
+ * Clase o model principal de Characters
+ * @author David Gutierrez Maciel
  */
-public class Characters {
-    //Atributos (variables)
-    private float life_health; // vida del personaje
-    private float strangeth; // fuerza de ataque
-    private String name; // nombre del personaje
-    private String hair; // Color de cabello y forma
-    private String wear; // vestimenta
-    private String weapon; //varma a usar
-
-    //constructores
-    public Characters() {
+public abstract class Characters {
+    //Atributos
+    private int life; // vida del personaje
+    private int strength; // fuerza de ataque
+    private String name; // Nombre del personaje
+    private String hair; // Color del cabello y forma
+    private String wear; // Vestimenta
+    private String weapon; // Arma a usar
+    
+    // Constructores
+    /**
+     * Constructor 
+     */
+    public Characters(){
+        this.name = null;
     }
-
-    public Characters(String name) {
+    /**
+     * 
+     * @param name 
+     */
+    public Characters(String name){
         this.name = name;
     }
-
-    //geter y setter
-    public void setName(String name) {
+    /**
+     * 
+     * @param name
+     * @param life 
+     */
+    public Characters(String name, int life){
         this.name = name;
+        this.life = 0;
     }
-
-    public String getName() {
+    // getter y setters
+    /**
+     * 
+     * @param name 
+     */
+    public void setName(String name){
+        this.name = name;
+    } // fin de setName
+    /**
+     * Retorna el valor de name al objeto
+     * @return Retorna name
+     */
+    public String getName(){
         return this.name;
+    }// Fin de getName
+    public void setlife(int x){
+        this.life=x;
     }
- public Characters(String name, float life_health, String weapon) {
-    this.name = name;
-    this.life_health = life_health;
-    this.weapon = weapon;
-}
-  public String getName() {
-        return name;
+    
+    public int setLife(){
+        return this.life;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // life_health
-    public float getLife_health() {
-        return life_health;
-    }
-
-    public void setLife_health(float life_health) {
-        this.life_health = life_health;
-    }
-
-    // weapon
-    public String getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(String weapon) {
-        this.weapon = weapon;
-    }
-
-}//fin de characters
+    //metodos polimorficos
+   
+    public abstract String Attack();
+  // fin de metodo polimorfico
+} // fin de Characters
