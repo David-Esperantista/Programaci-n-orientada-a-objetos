@@ -1,3 +1,4 @@
+
 /*
 * Nombre: Sergio Franco Casillas
 * Materia: POO
@@ -8,21 +9,26 @@
 package personajes;
 
 /**
- * Nombre de clase principal o de ejecución (Front-End)
+ * Nombre de clase principal o de ejecución 
  * @author David Gutierrez Maciel
  */
 public class Main {
 
     /**
-     * @param args the command line arguments
+     * para mostrat que funciona las clases
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // mago
         // instanciar objeto characters
     Wirzard wz= new Wirzard("David");
     wz.setLife(10);
     System.out.println("ataco");
-    wz.setLife(wz.getLife()-1)
+    wz.setLife(wz.getLife()-1);
+
+    Warior Wa= new Warior("Roberto");
+    Wa.setLife(15);
+    System.out.println(Wa.Attack());
+    Wa.setLife(Wa.getLife()-2);
         
     }// fin de main
     
