@@ -56,6 +56,16 @@ public class VentanaCalculadoraAritmetrica {
             b.addActionListener(e -> presionar(b.getText().trim()));
         }
     }
+public static void abrir() {
+    SwingUtilities.invokeLater(() -> {
+        JFrame ventana = new JFrame("Calculadora");
+        ventana.setContentPane(new VentanaCalculadoraAritmetrica().PanelPrincipal);
+        ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ventana.pack();
+        ventana.setLocationRelativeTo(null);
+        ventana.setVisible(true);
+    });
+}
 
     // Decide que hacer segun la tecla
     private void presionar(String t) {
