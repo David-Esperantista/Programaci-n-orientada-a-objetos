@@ -29,7 +29,7 @@ public class Main {
 
             switch (opcionPrincipal) {
                 case "1":
-                    VentanaCalculadoraAritmetrica.abrir();
+                    new VentanaCalculadoraAritmetrica().abrir();
                 break;
                 case "2":
                     menuConversor(sc, conv);
