@@ -6,18 +6,15 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.math.BigDecimal;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
 /**
- * Calculadora grafica construida por codigo (sin archivo .form), para que
- * funcione igual en NetBeans y en IntelliJ.
- * Los botones se identifican por su texto.
+ * Ventana de la calculadora aritmetica.
+ * Hereda de VentanaBase: aqui solo queda lo propio de esta pantalla.
  */
-public class VentanaCalculadoraAritmetrica {
+public class VentanaCalculadoraAritmetrica extends VentanaBase {
 
     // Disposicion del teclado, fila por fila (4 filas x 4 columnas)
     private static final String[] TECLAS = {
@@ -28,10 +25,7 @@ public class VentanaCalculadoraAritmetrica {
     };
 
     // Componentes
-    private final JPanel panelPrincipal = new JPanel(new BorderLayout());
     private final JTextField pantalla = new JTextField("0");
-    private final JPanel teclado = new JPanel(new GridLayout(4, 4));
-    private JFrame ventana;
 
     // Atributos de la logica
     private final Aritmetica calc = new Aritmetica();
@@ -39,8 +33,16 @@ public class VentanaCalculadoraAritmetrica {
     private String operador = "";
     private boolean nuevoNumero = true;
 
-    // Constructor
-    public VentanaCalculadoraAritmetrica() {
+    @Override
+    protected String titulo() {
+        return "Calculadora";
+    }
+
+    @Override
+    protected JPanel crearPanel() {
+        JPanel panelPrincipal = new JPanel(new BorderLayout());
+        JPanel teclado = new JPanel(new GridLayout(4, 4));
+
         pantalla.setEditable(false);
         pantalla.setHorizontalAlignment(SwingConstants.RIGHT);
         pantalla.setFont(new Font("SansSerif", Font.BOLD, 30));
@@ -56,26 +58,7 @@ public class VentanaCalculadoraAritmetrica {
         panelPrincipal.add(pantalla, BorderLayout.NORTH);
         panelPrincipal.add(teclado, BorderLayout.CENTER);
         panelPrincipal.setPreferredSize(new Dimension(400, 460));
-    }
-
-    /**
-     * Abre la calculadora desde el menu de consola: al cerrarla solo se
-     * cierra la ventana, el programa sigue.
-     */
-    public static void abrir() {
-        mostrar(JFrame.DISPOSE_ON_CLOSE);
-    }
-
-    private static void mostrar(int accionCerrar) {
-        SwingUtilities.invokeLater(() -> {
-            VentanaCalculadoraAritmetrica v = new VentanaCalculadoraAritmetrica();
-            v.ventana = new JFrame("Calculadora");
-            v.ventana.setContentPane(v.panelPrincipal);
-            v.ventana.setDefaultCloseOperation(accionCerrar);
-            v.ventana.pack();
-            v.ventana.setLocationRelativeTo(null);
-            v.ventana.setVisible(true);
-        });
+        return panelPrincipal;
     }
 
     // Decide que hacer segun la tecla
@@ -83,9 +66,7 @@ public class VentanaCalculadoraAritmetrica {
         if (t.matches("[0-9]")) {
             digito(t);
         } else if (t.equalsIgnoreCase("Salir")) {
-            if (ventana != null) {
-                ventana.dispose();
-            }
+            cerrar();
         } else if (t.equals("=")) {
             calcular();
             operador = "";
@@ -154,6 +135,6 @@ public class VentanaCalculadoraAritmetrica {
     }
 
     public static void main(String[] args) {
-        mostrar(JFrame.EXIT_ON_CLOSE);
+        new VentanaCalculadoraAritmetrica().abrir();
     }
 }
