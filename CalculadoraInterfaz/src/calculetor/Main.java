@@ -13,7 +13,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Aritmetica ar = new Aritmetica();
+
         Conversor conv = new Conversor();
         Sistemaconversion sis = new Sistemaconversion();
         String opcionPrincipal;
@@ -48,9 +48,7 @@ public class Main {
         sc.close();
     }
 
-    /**
-     * * muestra y gestiona el menu de operaciones aritmeticas
-     */
+
     
 
     /**

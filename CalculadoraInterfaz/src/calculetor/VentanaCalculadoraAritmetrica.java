@@ -18,10 +18,10 @@ public class VentanaCalculadoraAritmetrica extends VentanaBase {
 
     // Disposicion del teclado, fila por fila (4 filas x 4 columnas)
     private static final String[] TECLAS = {
-        "1", "2", "3", "+",
-        "4", "5", "6", "-",
-        "7", "8", "9", "X",
-        "0", "Salir", "=", "/"
+        "1", "2", "3", "+","=",
+        "4", "5", "6", "-","/",
+        "7", "8", "9", "X",".",
+        "0", "Salir",
     };
 
     // Componentes
