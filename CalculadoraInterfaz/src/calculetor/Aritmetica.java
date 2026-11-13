@@ -18,62 +18,42 @@ public class Aritmetica extends Calculadora {
     /**
      * este metodo hace que la x reciba un valor y este lo suma al contador
      */
-    public void sum(String num){
-        if (!valida(num) || !acumuladorValido()){
-            super.setResultado("Error");
-            super.setError("Valor inválido para la suma.");
-        } else {
-            double x = Double.parseDouble(super.getResultado()) + Double.parseDouble(num);
-            super.setResultado(Double.toString(x));
-            super.setError("");
-        }
+    public void sum(String num) {
+        double x = Double.parseDouble(super.getResultado()) + Double.parseDouble(num);
+        super.setResultado(Double.toString(x));
+        super.setError("");
     }
 
     /**
      * este metodo hace que la x reciba un valor y este lo resta al contador
      */
-    public void resta(String num){
-        if (!valida(num) || !acumuladorValido()){
-            super.setResultado("Error");
-            super.setError("Valor inválido para la resta.");
-        } else {
-            double x = Double.parseDouble(super.getResultado()) - Double.parseDouble(num);
-            super.setResultado(Double.toString(x));
-            super.setError("");
-        }
+    public void resta(String num) {
+        double x = Double.parseDouble(super.getResultado()) - Double.parseDouble(num);
+        super.setResultado(Double.toString(x));
+        super.setError("");
     }
 
     /**
      *  este metodo hace que la x reciba un valor y este lo multiplica al acumulador
      */
-    public void multiplicacion(String num){
-        if (!valida(num) || !acumuladorValido()){
-            super.setResultado("Error");
-            super.setError("Valor inválido para la multiplicación.");
-        } else {
-            double x = Double.parseDouble(super.getResultado()) * Double.parseDouble(num);
-            super.setResultado(Double.toString(x));
-            super.setError("");
-        }
+    public void multiplicacion(String num) {
+        double x = Double.parseDouble(super.getResultado()) * Double.parseDouble(num);
+        super.setResultado(Double.toString(x));
+        super.setError("");
     }
 
     /**
      *  este metodo hace que la x reciba un valor y este lo divide al acumulador
      */
-    public void division(String num){
-        if (!valida(num) || !acumuladorValido()){
+    public void division(String num) {
+        double divisor = Double.parseDouble(num);
+        if (divisor == 0) {
             super.setResultado("Error");
-            super.setError("Valor inválido para la división.");
+            super.setError("No se puede divir entre cero");
         } else {
-            double divisor = Double.parseDouble(num);
-            if (divisor == 0){
-                super.setResultado("Error");
-                super.setError("Error: División entre cero no permitida.");
-            } else {
-                double x = Double.parseDouble(super.getResultado()) / divisor;
-                super.setResultado(Double.toString(x));
-                super.setError("");
-            }
+            double x = Double.parseDouble(super.getResultado()) / divisor;
+            super.setResultado(Double.toString(x));
+            super.setError("");
         }
     }
 
@@ -86,22 +66,15 @@ public class Aritmetica extends Calculadora {
     }
 
     /**
-     *  este metodo valida que sea un numero
+     *  Quite validar porque con la interfaz ya no es posible que pase que pango un valon no valido porque yo
+     *  pongo las teclas y solo esas se pueden poner
      */
-    private boolean valida(String valor){
-        if (valor == null) return false;
-        try {
-            Double.parseDouble(valor);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
 
     /**
      *  el acumulador empieza y le vamos agregando segun lo que pida en el menu
      */
-    private boolean acumuladorValido(){
-        return valida(super.getResultado());
+
+    public boolean acumuladorValido() {
+        return !super.getResultado().equals("Error");
     }
 }
